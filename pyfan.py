@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import subprocess
 import time
 
 from gpiozero import OutputDevice
@@ -14,9 +13,7 @@ GPIO_PIN = 17  # Which GPIO pin you're using to control the fan.
 
 def get_temp():
     """Get the core temperature.
-
     Read file from /sys to get CPU temp in temp in C *1000
-
     Returns:
         int: The core temperature in thousanths of degrees Celsius.
     """
