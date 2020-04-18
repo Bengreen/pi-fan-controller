@@ -1,0 +1,11 @@
+[Unit]
+Description=PyFan Service
+
+[Service]
+# Command to execute when the service is started
+ExecStart=/opt/pyfan/venv/bin/python -m pyfan
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+User=pyfan
+# [Install]
+# WantedBy=default.target
