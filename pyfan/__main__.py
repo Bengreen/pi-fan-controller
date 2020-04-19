@@ -29,18 +29,27 @@ if __name__ == '__main__':
 
     fan = OutputDevice(GPIO_PIN)
 
+    temp = get_temp()
+    print("Initial temperature (%i)" % (temp/1000))
     while True:
         temp = get_temp()
 
         # Start the fan if the temperature has reached the limit and the fan
         # isn't already running.
         # NOTE: `fan.value` returns 1 for "on" and 0 for "off"
+
+
         if temp > ON_THRESHOLD and not fan.value:
+            print("Turning fan on (%i)" % (temp/1000))
             fan.on()
 
         # Stop the fan if the fan is running and the temperature has dropped
         # to 10 degrees below the limit.
         elif fan.value and temp < OFF_THRESHOLD:
+            print("Turning fan off (%i)" % (temp/1000))
             fan.off()
+
+        if fan.value:
+            print("High Temp (%i)" % (temp/1000))
 
         time.sleep(SLEEP_INTERVAL)
