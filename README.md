@@ -2,6 +2,12 @@
 
 Raspberry Pi fan controller.
 
+# Check status of service
+
+    journalctl 
+    systemctl status pyfan
+
+
 ## Description
 
 This repository provides scripts that can be run on the Raspberry Pi that will
